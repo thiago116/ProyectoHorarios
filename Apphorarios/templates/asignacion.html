@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignacion Horario</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <nav class="navbar navbar-light ">
+                <a class="navbar-brand" href="#">
+                   <i class="fal fa-home" style="font-size: 45px;"></i>
+                </a>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <form action="#" class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                            <label ><h6>Fichas</h6></label>
+                            <select class="form-select" name="fichas">
+                                <option value="2068106">2068106</option>
+                                <option value="23232323">23232323</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label><h6>Jefe de Grupo</h6></label>
+                            <select class="form-select" name="jgrupo">
+                                <option value="Raigosa">Raigosa</option>
+                                <option value="Yuli">Yuli</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label><h6>Trimestres</h6></label>
+                            <select class="form-select" name="trimestre">
+                                <option value="trimestre1">Trimestre 1</option>
+                                <option value="trimestre2">Trimestre 2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label><h6>Asignacion de Instructor</h6></label>
+                            <select class="form-select" name="instructor">
+                                <option value="Raigosa">Raigosa</option>
+                                <option value="Yuli">Yuli</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label><h6>Numero de Días para asignar horario</h6></label>
+                            <input type="number" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 form-check">
+                            <h6>Dias de la semana</h6>
+                            <div class="row">
+                                <div class="col-2">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="semana" id="" value="lunes" >Lunes
+                                    </label>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="semana" id="" value="martes" >Martes
+                                    </label>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="semana" id="" value="miercoles" >Miercoles
+                                    </label>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="semana" id="" value="miercoles" >Jueves
+                                    </label>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="semana" id="" value="miercoles" >Viernes
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-6 form-check">
+                            <div class="row">
+                                <h6>Jornadas</h6>
+                                <div class="col-5">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="jornada" value="mañana">mañana
+                                    </label>
+                                </div>
+                                <div class="col-5">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="jornada" value="Tarde">Tarde
+                                    </label>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="row align-items-start">
+                        <div class="col-6 align-items-end">
+                            <button type="button" class="btn btn-primary">Enviar</button>
+                            <button type="button" class="btn btn-secondary">Cancelar</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="col-6 ">
+                <table>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                </table>
+                <div  style="float:right;">
+                    <a href="#" class="btn btn-info">Cancelar</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-6">
+
+            </div>
+            <div class="col-6">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
