@@ -24,7 +24,7 @@ class Ambientes(models.Model):
 
 class Fichas(models.Model):
     id = models.BigAutoField(primary_key=True)
-    numero = models.IntegerField(blank=False, null=False)
+    numero = models.CharField(max_length=50, blank=False, null=False)
     jefe_ficha = models.CharField(max_length=50, blank=False, null=False)
     fecha_inicio = models.DateField()
     #fecha_finalizacion = models.DateField()
@@ -33,7 +33,26 @@ class Fichas(models.Model):
         ('T','tarde'),
     )
     jornada_de_ficha = models.CharField(max_length=10,choices=JORNADA,default='M')
-    trimestre_actual = models.IntegerField(blank=False, null=False)
+    #trimestre_actual = models.IntegerField(blank=False, null=False)
+    def __str__(self):
+        return self.numero
+
+class Instructor(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    nombre = models.CharField(max_length=50, blank=False, null=False)
+    apellidos = models.CharField(max_length=50, blank=False, null=False)
+    TIPO_INSTRUCTOR = (
+        ('TE', 'Tecnico'),
+        ('TR', 'Transversal'),
+        ('BI', 'Bilinguismo'),
+    )
+    tipo_instructor = models.CharField(max_length=3, choices=TIPO_INSTRUCTOR, default='TE')
+    '''ambiente = models.OneToOneField(Ambientes, on_delete=models.CASCADE)'''
+    fichas = models.ForeignKey(Fichas, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nombre
+
 
 
 class Competencia_Trimestre1(models.Model):
@@ -41,6 +60,7 @@ class Competencia_Trimestre1(models.Model):
     codigo = models.IntegerField()
     nombre_competencia = models.CharField(max_length=1500)
     resultado_competencia = models.CharField(max_length=1500)
+    
 
     def __str__(self):
         return self.nombre_competencia
@@ -96,6 +116,7 @@ class Trimestre1(models.Model):
     nombre = 'Trimestre 1'
     Competencia_Trimestre1 = models.ForeignKey(Competencia_Trimestre1, on_delete=models.CASCADE)
     ficha = models.OneToOneField(Fichas, on_delete=models.CASCADE)
+    instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre
@@ -105,6 +126,7 @@ class Trimestre2(models.Model):
     nombre = 'Trimestre 2'
     Competencia_Trimestre2 = models.ForeignKey(Competencia_Trimestre2, on_delete=models.CASCADE)
     ficha = models.OneToOneField(Fichas, on_delete=models.CASCADE)
+    instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre
@@ -114,6 +136,7 @@ class Trimestre3(models.Model):
     nombre = 'Trimestre 3'
     Competencia_Trimestre3 = models.ForeignKey(Competencia_Trimestre3, on_delete=models.CASCADE)
     ficha = models.OneToOneField(Fichas, on_delete=models.CASCADE)
+    instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre
@@ -123,6 +146,7 @@ class Trimestre4(models.Model):
     nombre = 'Trimestre 4'
     Competencia_Trimestre4 = models.ForeignKey(Competencia_Trimestre4, on_delete=models.CASCADE)
     ficha = models.OneToOneField(Fichas, on_delete=models.CASCADE)
+    instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre
@@ -132,6 +156,7 @@ class Trimestre5(models.Model):
     nombre = 'Trimestre 5'
     Competencia_Trimestre5 = models.ForeignKey(Competencia_Trimestre5, on_delete=models.CASCADE)
     ficha = models.OneToOneField(Fichas, on_delete=models.CASCADE)
+    instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre
@@ -141,12 +166,13 @@ class Trimestre6(models.Model):
     nombre = 'Trimestre 6'
     Competencia_Trimestre6 = models.ForeignKey(Competencia_Trimestre6, on_delete=models.CASCADE)
     ficha = models.OneToOneField(Fichas, on_delete=models.CASCADE)
+    instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre
 
 
-class Instructor(models.Model):
+'''class Instructor(models.Model):
     id = models.BigAutoField(primary_key=True)
     nombre = models.CharField(max_length=50, blank=False, null=False)
     apellidos = models.CharField(max_length=50, blank=False, null=False)
@@ -156,9 +182,9 @@ class Instructor(models.Model):
         ('BI', 'Bilinguismo'),
     )
     tipo_instructor = models.CharField(max_length=3, choices=TIPO_INSTRUCTOR, default='TE')
-    '''ambiente = models.OneToOneField(Ambientes, on_delete=models.CASCADE)'''
+    ambiente = models.OneToOneField(Ambientes, on_delete=models.CASCADE)
     fichas = models.ForeignKey(Fichas, on_delete=models.CASCADE)
 
 
     def __str__(self):
-        return '{0} {1}'.format(self.nombre, self.apellidos)
+        return '{0} {1}'.format(self.nombre, self.apellidos)'''
