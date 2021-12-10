@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.http.response import HttpResponse
 
 # Create your views here.
 
-def dashboard_instructor(request):
-    return render(request,"dashboard_instructor.html")
+def visualizar_horarios(request):
+    return render(request,"visualizar_horarios.html")

@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import dashboard_instructor
+from .views import visualizar_horarios
 
 urlpatterns = [
-    path('dashboard_instructor/', dashboard_instructor,name='dashboard_instructor'),
+    path('visualizar_horarios/', visualizar_horarios,name='visualizar_horarios'),
 ]

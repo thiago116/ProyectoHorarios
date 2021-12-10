@@ -5,8 +5,8 @@ from .models import *
 from .forms import *
 # Create your views here.
 
-def indexCoordinador(request):
-    return render(request,"indexcoordinador.html")
+def base_coordinador(request):
+    return render(request,"base_coordinador.html")
 
 def login_view(request):
     form = LoginForm(request.POST or None)
@@ -18,10 +18,10 @@ def login_view(request):
             user = authenticate(username=username,password=password)
             if user is not None and user.is_coordinador:
                 login(request,user)
-                return redirect('dashboard_coord')
+                return redirect('base_coordinador')
             if user is not None and user.is_instructor:
                 login(request,user)
-                return redirect('dashboard_ins')
+                return redirect('visualizar_horarios')
             if user is not None and user.is_JGrupo:
                 login(request,user)
                 return redirect('dashboardjg')
