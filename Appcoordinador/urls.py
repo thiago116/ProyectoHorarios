@@ -11,5 +11,6 @@ urlpatterns = [
     path('agregar_instructor/', views.agregar_instructor,name='agregar_instructor'),
     path('deshabilitar_instructor/', views.deshabilitar_instructor,name='deshabilitar_instructor'),
     path('deshabilitar_ficha/', views.deshabilitar_ficha,name='deshabilitar_ficha'),
+    path('salir/', views.salir,name="salir"),
 
 ]

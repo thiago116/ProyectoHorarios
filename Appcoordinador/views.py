@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.http.response import HttpResponse
 from Apphorarios.forms import *
+from Apphorarios.views import logout_view
 # Create your views here.
 
 def registro_usuarios(request):
@@ -41,3 +43,8 @@ def deshabilitar_ficha(request):
 
 def deshabilitar_instructor(request):
     return render(request,"deshabilitar_instructor.html")
+
+def salir(request):
+    logout_view(request)
+    messages.success(request,F"Tu sesion se ha cerrado correctamente")
+    return redirect("login")
