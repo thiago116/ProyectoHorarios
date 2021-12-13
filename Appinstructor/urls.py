@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import dashboard_instructor
+from Appinstructor import views
 
 urlpatterns = [
-    path('dashboard_instructor/', dashboard_instructor,name='dashboard_instructor'),
+    path('visualizar_horarios/', views.visualizar_horarios,name='visualizar_horarios'),
+    path('salir/', views.salir,name="salir"),
 ]

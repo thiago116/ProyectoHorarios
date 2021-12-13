@@ -38,13 +38,13 @@
                                 <a href="{% url 'agregar_instructor' %}" style="color: white;">Agregar Instructor</a>
                             </button>
                             <button type="button" class="btn btn-secondary btn-lg p-2 mb-3" style="border-color: black;">
-                                <a href="{% url 'asignacion_instructores' %}" style="color: white;">Asignacion de Instructores</a>
+                                <a href="{% url 'asignacion_horario_instructor' %}" style="color: white;">Asignacion de Instructores</a>
                             </button>           
                             <button type="button" class="btn btn-secondary btn-lg p-2 mb-3" style="border-color: black;">
-                                <a href="{% url 'visualizar_instructores' %}" style="color: white;">Visualizar Horario de Instructores</a>
+                                <a href="{% url 'visualizar_horarios_instructores' %}" style="color: white;">Visualizar Horario de Instructores</a>
                             </button>
                             <button type="button" class="btn btn-secondary btn-lg p-2 mb-3" style="border-color: black;">
-                                <a href="#" style="color: white;">Visualizar Horarios de Fichas</a>
+                                <a href="{% url 'visualizar_horarios_fichas' %}" style="color: white;">Visualizar Horarios de Fichas</a>
                             </button>
                             <button type="button" class="btn btn-secondary btn-lg p-2 mb-3" style="border-color: black;">
                                 <a href="{% url 'deshabilitar_ficha' %}" style="color: white;">Deshabilitar Ficha</a>
@@ -57,17 +57,15 @@
                 </div>
                 <div class="col-3 mt-4 dropdown text-center">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        User
+                        Coordinador
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Actualizar Informacion</a></li>
-                        <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
+                        <li><a class="dropdown-item" href="{% url 'actualizar' %}">Actualizar Informacion</a></li>
+                        <li><a class="dropdown-item" href="{% url 'salir' %}">Cerrar sesion</a></li>
                     </ul>
                 </div>
-                
             </div>
         </div> 
-
         <!-- Option 1: Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>

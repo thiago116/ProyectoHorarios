@@ -6,8 +6,8 @@ from Apphorarios.views import logout_view
 
 # Create your views here.
 
-def visualizar_horarios(request):
-    return render(request,"visualizar_horarios.html")
+def visualizar_horarios_trimestres(request):
+    return render(request,"visualizar_horarios_trimestres.html")
 
 def salir(request):
     logout_view(request)

@@ -10,45 +10,59 @@
     <title>Visualizar instructores</title>
 </head>
 <body>
+
     <div class="bg-light">
         <div class="container p-3">
-            <nav class="navbar navbar-light bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="{% url 'base_coordinador' %}">
-                        <i class="fal fa-home" style="font-size: 45px;"></i>
-                    </a>
-                    <div>
-                        
-                        </svg>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                User
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Actualizar Informacion</a></li>
-                                <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
-                            </ul>
+            <div class="row mb-5">
+                <nav class="navbar navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="{% url 'base_coordinador' %}">
+                            <i class="fal fa-home" style="font-size: 45px;"></i>
+                        </a>
+                
+                        <div>
+                                
+                            <div class="dropdown " >
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Jefe de grupo
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Actualizar Información<noscript></noscript></a></li>
+                                    <li><a class="dropdown-item" href="{% url 'salir' %}">Cerrar sesión</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </nav>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center mt-5">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">Jorge Luis Raigosa Barahona</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Yuly Paulin Saenz Agudelo</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Yuely Adriana Arce Arias</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+                </nav>
+            </div>  
+            <div class="row mb-2 " style="justify-content: center;">
+                <div class="col-md-3"></div>
+                        <div class="col-2 mb-5">
+                            <button type="button" class="btn btn-outline-dark">Trimestre 1</button>
+                        </div>
+                        <div class="col-2">
+                            <button type="button" class="btn btn-outline-dark">Trimestre 2</button>
+                        </div>
+                        <div class="col-2">
+                            <button type="button" class="btn btn-outline-dark">Trimestre 3</button>
+                        </div>
+                        <div class="col-md-3"></div>
+                        
+            
+                        <div class="col-md-3"></div>
+                        <div class="col-2 mb-2">
+                            <button type="button" class="btn btn-outline-dark ">Trimestre 4</button>
+                        </div>
+                        <div class="col-2">
+                            <button type="button" class="btn btn-outline-dark">Trimestre 5</button>
+                        </div>
+                        <div class="col-2">
+                            <button type="button" class="btn btn-outline-dark">Trimestre 6</button>
+                        </div>
+                        <div class="col-md-3"></div>
+                
+            </div>
+            
 
             <div class="card shadow-lg p-3 mb-5 bg-white">
                 <div class="card-body">
@@ -114,13 +128,16 @@
                             </tr>
                             </tbody>
                     </table>
-                    <div class="row">
-                        <div class="col-10"></div>
-                        <div class="col-2">
-                            <button type="button" class="btn btn-outline-dark">Descargar PDF</button>
-                        </div>                
-                    </div>    
                 </div>
+                <div class="row">
+                    <div class="col-10"></div>
+                    <div class="col-2">
+                        <button type="button" class="btn btn-outline-dark">Descargar PDF</button>
+                    </div>
+                    
+                </div>
+               
+            
             </div>      
         </div>
     </div>

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Apphorarios',
     'Appcoordinador',
     'Appinstructor',
+    'Appjefedegrupo',
 ]
 
 MIDDLEWARE = [
