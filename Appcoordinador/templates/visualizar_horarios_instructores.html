@@ -22,11 +22,11 @@
                         </svg>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                User
+                                Coordinador
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Actualizar Informacion</a></li>
-                                <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
+                                <li><a class="dropdown-item" href="{% url 'visualizar_horarios_instructores' %}">Actualizar Informacion</a></li>
+                                <li><a class="dropdown-item" href="{% url 'salir' %}">Cerrar sesion</a></li>
                             </ul>
                         </div>
                     </div>
