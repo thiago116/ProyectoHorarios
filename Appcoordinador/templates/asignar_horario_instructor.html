@@ -15,14 +15,15 @@
         <div class="container p-3">
             <nav class="navbar navbar-light">
                     <nav class="navbar navbar-light ">
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="{% url 'base_coordinador' %}">
                             <i class="fal fa-home" style="font-size: 45px;"></i>
                         </a>
                     </nav>
             </nav>
             <div class="row">
                 <div class="col">
-                    <img src="logo.png" class="img-fluid mx-auto d-block" width="150px" alt="..."><br>
+                    {% load static %}
+                    <img src= "{% static "img/logosena.png" %}" class="img-fluid mx-auto d-block mt-4" width="150px" alt="..."><br>
                 </div>
             </div><br>
 
