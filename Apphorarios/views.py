@@ -24,11 +24,11 @@ def login_view(request):
                 return redirect('visualizar_horarios')
             if user is not None and user.is_JGrupo:
                 login(request,user)
-                return redirect('dashboardjg')
+                return redirect('visualizar_horarios_trimestres')
             else:
-                return HttpResponse("credenciales incorrectas")
+                return HttpResponse("Credenciales Incorrectas")
         else:
-            return HttpResponse("error validando los campos")
+            return HttpResponse("Error validando los campos")
     return render(request,"login.html",{'forms':form})
 def logout_view(request):
     logout(request)

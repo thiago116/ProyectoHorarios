@@ -48,3 +48,6 @@ def salir(request):
     logout_view(request)
     messages.success(request,F"Tu sesion se ha cerrado correctamente")
     return redirect("login")
+
+def actualizar(request):
+    return render(request,"base_coordinador.html")
