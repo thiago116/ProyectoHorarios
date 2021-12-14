@@ -16,7 +16,7 @@ def registro_usuarios(request):
     else:
         form = SignUpForm()
         
-    return render(request,"base_coordinador.html",{'forms':form})
+    return render(request,"registro_usuarios.html",{'forms':form})
 
 def agregar_ficha(request):
     if request.method == 'POST':
