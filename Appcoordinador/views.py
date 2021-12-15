@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.http.response import HttpResponse
 from Apphorarios.forms import *
 from Apphorarios.views import logout_view
+from .forms import *
 # Create your views here.
 
 def registro_usuarios(request):
@@ -19,9 +20,19 @@ def registro_usuarios(request):
     return render(request,"registro_usuarios.html",{'forms':form})
 
 def agregar_ficha(request):
+    print(request.POST)
     if request.method == 'POST':
-        pass
-    return render(request, "agregar_ficha.html")
+        
+        form = AddFichas(request.POST)
+        print(form)
+        if form.is_valid():
+            form.save()
+            return HttpResponse("datos guardados")
+        else:
+            return HttpResponse("vuelva a llenar el formulario")
+    else:
+        form = AddFichas()
+    return render(request, "agregar_ficha.html",{'form':form})
 
 def base_coordinador(request):
     return render(request,"base_coordinador.html")
