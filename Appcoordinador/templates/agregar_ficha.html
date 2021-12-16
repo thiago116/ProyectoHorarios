@@ -21,42 +21,36 @@
             <dt class="text-center display-6 mb-3">Agregar Ficha</dt>
         </div>
         <div class="card-body">
-            <form>
+            <form method="post">
+                {% csrf_token %}
+                
                 <div class="row g-3" style="justify-content: center; align-items: center;">
                     <div class="col-3 mb-3">
                         <label for="InputFicha" class="form-label">Número de Ficha</label>
-                        <input type="text" class="form-control" id="ficha">
+                        {{form.numero}}
                     </div>
                 </div>
-                <div class="row" style="justify-content: center; align-items: center;">
+            <div class="row" style="justify-content: center; align-items: center;">
                     <div class="col-7 mb-3">
                         <label for="InputPrograma" class="form-label">Programa de Formación</label>
-                        <input type="text" class="form-control" id="programa">
+                        {{form.programa_de_formacion}}
+                        
                     </div>
                 </div>
                 <div class="row" style="justify-content: center; align-items: center;">
                     <div class="col-7 mb-3">
                         <label for="InputJefeGrupo" class="form-label">Jefe de Grupo</label>
-                        <input type="text" class="form-control" id="jefegrupo">
+                        {{form.jefe_ficha}}
                     </div>
                     <div class="col-7 mb-3">
                         <label for="InputJefeGrupo" class="form-label">Jornada</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Seleccionar</option>
-                            <option value="1">Diurna</option>
-                            <option value="2">Tarde</option>
-                            <option value="3">Mixta</option>
-                        </select>
+                        {{form.jornada_de_ficha}}
                     </div>
                 </div>
                 <div class="row" style="justify-content: center; align-items: center;">
                     <div class="col-3 mb-3">
                         <label for="" class="form-label">Fecha de Inicio</label>
-                        <input type="date" class="form-control" id="jefegrupo">
-                    </div>
-                    <div class="col-3 mb-3">
-                        <label for="" class="form-label">Fecha de Finalización</label>
-                        <input type="date" class="form-control" id="jefegrupo">
+                        {{form.fecha_inicio}}
                     </div>
                 </div>
                 <div class="row g-3" style="justify-content: center; align-items: center;">
@@ -64,7 +58,8 @@
                         <button type="submit" class="btn btn-success">Agregar</button>
                     </div>
                     <div class="col-auto mb-2">
-                        <button type="submit" class="btn btn-danger">Cancelar</button>
+                        <a href="{%url 'base_coordinador'%}" class="btn btn-danger">Cancelar</a>
+                    
                     </div>
                 </div>
             </form>
