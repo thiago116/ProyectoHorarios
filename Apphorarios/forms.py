@@ -68,7 +68,22 @@ class AddFichas(forms.ModelForm):
         self.fields['fecha_inicio'].widget.attrs.update({
             'class': 'form-control'
         })
+class AddInstructores(forms.ModelForm):
+    class Meta:
+        model = Instructor
+        fields = ['nombre','apellidos','tipo_instructor']
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
+        self.fields['nombre'].widget.attrs.update({
+            'class':'form-control'
+        })
+        self.fields['apellidos'].widget.attrs.update({
+            'class':'form-control'
+        })
+        self.fields['tipo_instructor'].widget.attrs.update({
+            'class':'form-control'
+        })
 
 
     '''numero = forms.CharField(

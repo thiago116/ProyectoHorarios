@@ -38,7 +38,16 @@ def base_coordinador(request):
     return render(request,"base_coordinador.html")
 
 def agregar_instructor(request):
-    return render(request,"agregar_instructor.html")
+    if request.method == 'POST':
+        form = AddInstructores(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse("se agregó correctamente")
+        else:
+            return HttpResponse("hay un error")
+    else:
+        form = AddInstructores()
+    return render(request,"agregar_instructor.html",{'form':form})
 
 def asignacion_horario_instructor(request):
     return render(request,"asignar_horario_instructor.html")
