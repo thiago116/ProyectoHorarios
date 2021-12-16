@@ -38,13 +38,14 @@
 					<br>
 					<div class="d-grid gap-2 cpl-6 mx-auto">
 						<button type="submit" class="btn btn-primary">Entrar</button>
-					</div>			
+					</div>
+					{% if messages %}
+						<p>Usuario incorrecto</p>
+					{% endif %}			
 				</form>
 			</div>
 		</div>
 	</div>
-    {% if for.errors %}
-    <p>Usuario incorrecto</p>
-    {% endif %}
+
 </body>
 </html>

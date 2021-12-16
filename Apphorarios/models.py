@@ -26,10 +26,11 @@ class Fichas(models.Model):
     id = models.BigAutoField(primary_key=True)
     PROGRAMA_DE_FORMACION =(
         ('ADSI', 'Analisis y desarrollo de sistemas de informacion'),
+        ('ADSO', 'Analisis y desarrollo de software'),
     )
-    programa_de_formacion = models.CharField(max_length=10, choices=PROGRAMA_DE_FORMACION, default='ADSI')
-    numero = models.CharField(max_length=50, blank=False, null=False)
-    jefe_ficha = models.CharField(max_length=50, blank=False, null=False)
+    programa_de_formacion = models.CharField(max_length=1500, choices=PROGRAMA_DE_FORMACION, default='ADSI')
+    numero = models.CharField(max_length=50)
+    jefe_ficha = models.CharField(max_length=50)
     fecha_inicio = models.DateField()
     #fecha_finalizacion = models.DateField()
     JORNADA = (
@@ -37,7 +38,6 @@ class Fichas(models.Model):
         ('T','tarde'),
     )
     jornada_de_ficha = models.CharField(max_length=10,choices=JORNADA,default='M')
-    ambiente = models.ForeignKey(Ambientes, on_delete=models.CASCADE)
     #trimestre_actual = models.IntegerField(blank=False, null=False)
     def __str__(self):
         return self.numero

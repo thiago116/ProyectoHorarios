@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate,login,logout
 from django.shortcuts import redirect, render
+from django.contrib import messages
 from django.http import HttpResponse
 from .models import *
 from .forms import *
@@ -26,9 +27,12 @@ def login_view(request):
                 login(request,user)
                 return redirect('visualizar_horarios_trimestres')
             else:
-                return HttpResponse("Credenciales Incorrectas")
+                messages.add_message(request=request,level=messages.ERROR,message="Credenciales Incorrectas")
+                return redirect('login')
+                #return HttpResponse("Credenciales Incorrectas")
         else:
-            return HttpResponse("Error validando los campos")
+            messages.add_message(request=request,level=messages.ERROR,message="Credenciales Incorrectas")
+            return redirect('login')
     return render(request,"login.html",{'forms':form})
 def logout_view(request):
     logout(request)
