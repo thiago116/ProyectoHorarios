@@ -21,28 +21,25 @@
             <dt class="text-center display-6 mb-3">Agregar Instructor</dt>
         </div>
         <div class="card-body">
-            <form>
+            <form method="post">
+                {% csrf_token %}
+                
                 <div class="row" style="justify-content: center; align-items: center;">
                     <div class="col-3 mb-3">
                         <label for="InputPrograma" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="programa">
+                        {{form.nombre}}
                     </div>
                 </div>
                 <div class="row" style="justify-content: center; align-items: center;">
                     <div class="col-3 mb-3">
                         <label for="InputPrograma" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="programa">
+                        {{form.apellidos}}
                     </div>
                 </div>
                 <div class="row" style="justify-content: center; align-items: center;">
                     <div class="col-3 mb-3">
                         <label for="InputFicha" class="form-label">Tipo Instructor</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Seleccionar</option>
-                            <option value="1">Técnico</option>
-                            <option value="2">Transversal</option>
-                            <option value="3">Bilinguismo</option>
-                        </select>
+                        {{form.tipo_instructor}}
                     </div>
                 </div>                       
                 <div class="row g-3" style="justify-content: center; align-items: center;">
