@@ -86,19 +86,3 @@ class AddInstructores(forms.ModelForm):
         })
 
 
-    '''numero = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-                "class": "form-control"
-            }
-        )
-    )
-    programa_de_formacion = forms.CharField(
-        widget=forms.SelectMultiple(
-            attrs={
-                "class": "form-control"
-            }
-        )
-    )'''
-
-
