@@ -9,7 +9,6 @@ class Usuario(AbstractUser):
 
 class Ambientes(models.Model):
     id = models.BigAutoField(primary_key=True)
-    zona = models.CharField(max_length=50, blank=False, null=False)
     nombre_ambiente = models.CharField(max_length=50, blank=False, null=False)
     ZONA_FORMACION = (
         ('Zona 1', '1'),
@@ -63,125 +62,59 @@ class Instructor(models.Model):
         return '{0} {1}'.format(self.nombre, self.apellidos)
 
 
+class Trimestres(models.Model):
+    TRIMESTRES = (
+        ('T1', 'Trimestre 1'),
+        ('T2', 'Trimestre 2'),
+        ('T3', 'Trimestre 3'),
+        ('T4', 'Trimestre 4'),
+        ('T5', 'Trimestre 5'),
+        ('T6', 'Trimestre 6'),
+    )
+    trimestres = models.CharField(max_length=3, choices=TRIMESTRES, default='T1')
 
-class Competencia_Trimestre1(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    codigo = models.name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.trimestres
+
+class Actividad(models.Model):
+    id_actividad= models.AutoField(primary_key=True)
+    nombre_actividad = models.CharField(max_length=1500)
+
+    def __str__(self):
+        return self.nombre_actividad
+
+class Competencia_aprendizaje(models.Model):
+    id_competencia = models.AutoField(primary_key=True)
     nombre_competencia = models.CharField(max_length=1500)
-    resultado_competencia = models.CharField(max_length=1500)
-    
+    codigo = models.IntegerField()
 
     def __str__(self):
         return self.nombre_competencia
 
-class Competencia_Trimestre2(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    codigo = models.name = models.CharField(max_length=100)
+class Resultado_aprendizaje(models.Model):
+    id_resultado = models.AutoField(primary_key=True)
+    nombre_resultado = models.CharField(max_length=1500)
+    competencia = models.ForeignKey(Competencia_aprendizaje, on_delete=models.CASCADE)
+    trimestres = models.ForeignKey(Trimestres, on_delete=models.CASCADE)
+    actividad = models.ForeignKey(Actividad, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nombre_resultado
+
+class Filtros(models.Model):
+    id_resultado = models.IntegerField()
+    nombre_resultado = models.CharField(max_length=1500)
+    actividad_id = models.IntegerField()
+    competencia_id = models.IntegerField()
+    trimestres_id = models.BigIntegerField()
+    id_competencia = models.IntegerField()
     nombre_competencia = models.CharField(max_length=1500)
-    resultado_competencia = models.CharField(max_length=1500)
+    codigo = models.IntegerField()
+    id = models.BigIntegerField(primary_key=True)
+    trimestres = models.CharField(max_length=3)
+    id_actividad = models.IntegerField()
+    nombre_actividad = models.CharField(max_length=1500)
 
-    def __str__(self):
-        return self.nombre_competencia
-
-class Competencia_Trimestre3(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    codigo = models.name = models.CharField(max_length=100)
-    nombre_competencia = models.CharField(max_length=1500)
-    resultado_competencia = models.CharField(max_length=1500)
-
-    def __str__(self):
-        return self.nombre_competencia
-
-class Competencia_Trimestre4(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    codigo = models.name = models.CharField(max_length=100)
-    nombre_competencia = models.CharField(max_length=1500)
-    resultado_competencia = models.CharField(max_length=1500)
-
-    def __str__(self):
-        return self.nombre_competencia
-
-class Competencia_Trimestre5(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    codigo = models.name = models.CharField(max_length=100)
-    nombre_competencia = models.CharField(max_length=1500)
-    resultado_competencia = models.CharField(max_length=1500)
-
-    def __str__(self):
-        return self.nombre_competencia
-
-class Competencia_Trimestre6(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    codigo = models.name = models.CharField(max_length=100)
-    nombre_competencia = models.CharField(max_length=1500)
-    resultado_competencia = models.CharField(max_length=1500)
-
-    def __str__(self):
-        return self.nombre_competencia
-
-
-class Trimestre1(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    nombre = 'Trimestre 1'
-    Competencia_Trimestre1 = models.ForeignKey(Competencia_Trimestre1, on_delete=models.CASCADE)
-    ficha = models.ForeignKey(Fichas, on_delete=models.CASCADE)
-    instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
-    
-
-    def __str__(self):
-        return self.nombre
-
-class Trimestre2(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    nombre = 'Trimestre 2'
-    Competencia_Trimestre2 = models.ForeignKey(Competencia_Trimestre2, on_delete=models.CASCADE)
-    ficha = models.ForeignKey(Fichas, on_delete=models.CASCADE)
-    instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
-    
-    def __str__(self):
-        return self.nombre
-
-class Trimestre3(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    nombre = 'Trimestre 3'
-    Competencia_Trimestre3 = models.ForeignKey(Competencia_Trimestre3, on_delete=models.CASCADE)
-    ficha = models.ForeignKey(Fichas, on_delete=models.CASCADE)
-    instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
-    
-
-    def __str__(self):
-        return self.nombre
-
-class Trimestre4(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    nombre = 'Trimestre 4'
-    Competencia_Trimestre4 = models.ForeignKey(Competencia_Trimestre4, on_delete=models.CASCADE)
-    ficha = models.ForeignKey(Fichas, on_delete=models.CASCADE)
-    instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
-    
-
-    def __str__(self):
-        return self.nombre
-
-class Trimestre5(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    nombre = 'Trimestre 5'
-    Competencia_Trimestre5 = models.ForeignKey(Competencia_Trimestre5, on_delete=models.CASCADE)
-    ficha = models.ForeignKey(Fichas, on_delete=models.CASCADE)
-    instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
-    
-
-    def __str__(self):
-        return self.nombre
-
-class Trimestre6(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    nombre = 'Trimestre 6'
-    Competencia_Trimestre6 = models.ForeignKey(Competencia_Trimestre6, on_delete=models.CASCADE)
-    ficha = models.ForeignKey(Fichas, on_delete=models.CASCADE)
-    instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
-    
-
-    def __str__(self):
-        return self.nombre
-
+    class Meta:
+        managed = False
+        db_table = 'filtros'

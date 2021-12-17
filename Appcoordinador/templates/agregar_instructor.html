@@ -21,6 +21,13 @@
             <dt class="text-center display-6 mb-3">Agregar Instructor</dt>
         </div>
         <div class="card-body">
+            {% if messages %}
+                {% for mess in messages %}
+                    <div class="alert alert-dark" role="alert">
+                        {{mess}}
+                    </div>
+                {% endfor %}
+            {% endif %}
             <form method="post">
                 {% csrf_token %}
                 

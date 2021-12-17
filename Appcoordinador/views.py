@@ -27,9 +27,11 @@ def agregar_ficha(request):
         print(form)
         if form.is_valid():
             form.save()
-            return HttpResponse("datos guardados")
+            messages.success(request,"Los datos se agregaron correctamente")
+            return redirect(agregar_ficha)
         else:
-            return HttpResponse("vuelva a llenar el formulario")
+            messages.success(request,"los datos ingresados son incorrectos, compruebe que la fecha sea la correcta (DD/MM/AA)")
+            return redirect(agregar_ficha)
     else:
         form = AddFichas()
     return render(request, "agregar_ficha.html",{'form':form})
@@ -42,15 +44,19 @@ def agregar_instructor(request):
         form = AddInstructores(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse("se agregó correctamente")
+            messages.success(request,"Los datos se agregaron correctamente")
+            return redirect(agregar_instructor)
         else:
-            return HttpResponse("hay un error")
+            messages.success(request,"Compruebe que los datos ingresados sean los correctos")
+            return redirect(agregar_instructor)
     else:
         form = AddInstructores()
     return render(request,"agregar_instructor.html",{'form':form})
 
 def asignacion_horario_instructor(request):
-    return render(request,"asignar_horario_instructor.html")
+    filtro = Filtros.objects.all()
+    print(filtro)
+    return render(request,"asignar_horario_instructor.html",{'filtro':filtro})
 
 def visualizar_horarios_instructores(request):
     return render(request,"visualizar_horarios_instructores.html")

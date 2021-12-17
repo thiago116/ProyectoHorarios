@@ -24,6 +24,13 @@
                 <img src="{% static "img/logosena.png" %}"  alt="" width="370" height="350" class="img-fluid">
             </div>
 			<div class="col-6 card-body">
+				{% if messages %}
+					{% for mess in messages %}
+						<div class="alert alert-dark" role="alert">
+							{{mess}}
+						</div>
+					{% endfor %}
+				{% endif %}	
 				<h3 class="text-center">Login</h3>
 				<form action="" method="post">
                     {% csrf_token %}
@@ -39,9 +46,7 @@
 					<div class="d-grid gap-2 cpl-6 mx-auto">
 						<button type="submit" class="btn btn-primary">Entrar</button>
 					</div>
-					{% if messages %}
-						<p>Usuario incorrecto</p>
-					{% endif %}			
+		
 				</form>
 			</div>
 		</div>

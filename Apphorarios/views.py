@@ -27,11 +27,10 @@ def login_view(request):
                 login(request,user)
                 return redirect('visualizar_horarios_trimestres')
             else:
-                messages.add_message(request=request,level=messages.ERROR,message="Credenciales Incorrectas")
+                messages.success(request,"Credenciales Incorrectas")
                 return redirect('login')
-                #return HttpResponse("Credenciales Incorrectas")
         else:
-            messages.add_message(request=request,level=messages.ERROR,message="Credenciales Incorrectas")
+            messages.success(request,"todos los campos deben estár llenos")
             return redirect('login')
     return render(request,"login.html",{'forms':form})
 def logout_view(request):

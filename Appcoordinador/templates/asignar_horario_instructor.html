@@ -33,6 +33,14 @@
                     <dt class="text-center display-6 mb-3">Asignar horario a instructor</dt>
                 </div>
                 <div class="card-body">
+                    
+                    {% for fil in filtro %}
+                        
+                        <p>{{fil.nombre_resultado}}</p>
+                            
+                        
+                    {% endfor %}
+                        
                     <form>
                         <div class="card-body" style="float: right;">
                             <table class="table table-bordered border border-dark">

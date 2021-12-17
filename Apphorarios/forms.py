@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.forms import widgets
 from .models import *
 
 class LoginForm(forms.Form):
@@ -40,6 +41,11 @@ class SignUpForm(UserCreationForm):
             }
         )
     )
+    is_coordinador = widgets.CheckboxInput(
+        attrs={
+            "class":"form-control"
+        }
+    )
 
     class Meta:
         model = Usuario
@@ -66,7 +72,8 @@ class AddFichas(forms.ModelForm):
             'class': 'form-control'
         })
         self.fields['fecha_inicio'].widget.attrs.update({
-            'class': 'form-control'
+            'class': 'form-control',
+            'type':'date'
         })
 class AddInstructores(forms.ModelForm):
     class Meta:
